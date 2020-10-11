@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --color1: black; /* text */
+        --color2: white; /* background 1 */
+        --color3: yellowgreen; /* background 2 */
+        --color4: ; /* background 3 */
+    }
+    
+    .menu { grid-area: menu; }
+    .section { grid-area: section; }
+    .opening { grid-area: opening; }
+    .intro { grid-area: intro; }
+    .art { grid-area: art; }
+    .contact { grid-area: contact; }
+    .footer { grid-area: footer; }
+    .grid-container {
+    display: grid;
+    grid-template-areas:
+    'menu section opening'
+    'menu section intro'
+    'menu section art'
+    'menu section contact'
+    'menu section footer';
+    width: 100vw;
+    grid-template-rows: 100vh auto auto auto auto;
+    grid-template-columns: 20vw 50px calc(100% - 20vw - 60px);
+    grid-gap: 5px;
+    background-color: var(--color3);
+/*    padding: 10px;*/
+    }
+    .grid-container > div {
+        background-color: var(--color2);
+        text-align: center;
+        padding: 0 0;
+        font-size: 30px;
+    }
+</style>
+
+<style>
+    body {
+        margin:0;
+        padding:0;
+        font-family: 'Lato', sans-serif;
+        color: var(--color1);
+    }
+    h2 {
+        font-size: 50px;
+        text-align: left;
+        margin:0;
+        padding:0;
+    }
+    .menu {
+        position: fixed;
+        height: 100vh;
+        width: 20vw;
+    }
+    #navbar {
+        position:absolute;                  
+        bottom:0;
+        right:0;
+    }
+    td,th {
+        text-align: right;
+    }
+    td {
+        background-color: var(--color3);
+        padding:0px 5px 0 5px;
+        width:20vw;
+    }
+    a {
+        color: black;
+        text-decoration: none;
+    }
+    td:hover {
+        background-color: var(--color1);
+        transition: 0.5s;
+    }
+    td:hover a{
+        color: var(--color2);
+    }
+    .section {
+        text-align:center;
+        position:fixed;
+        height:100vh;
+        width: 55px;
+        left: 20vw;
+        float:center;
+    }
+    #sectionName {
+        position:absolute;                  
+        bottom:0;
+        transform: rotate(270deg);
+        transform-origin: top left;
+        font-size: 50px;
+        margin: 0 0 -45px 0px;
+    }
+    .opening {
+        height: 100vh;
+    }
+    #openingName {
+        position:absolute;  
+        bottom:0;
+    }
+    .intro {
+        height: 100vh;
+    }
+/**********************************************************/
+    .art {
+        width:75vw;
+        float:left;
+        text-align:left;
+    }
+    .image {
+        width:24vw;
+        height:auto;
+        float:left;
+    }
+    .artcolumn1, .artcolumn2, .artcolumn3 {
+        float: left;
+        width: 30%;
+        height:auto;
+    }
+</style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="menu">
+            <h2 style="text-align:right">Benjamin<br>Tang</h2>
+
+            <div id="navbar">
+                <table style="width:100%">
+                    <tr><td><a href="benjamint.xyz/critic/">AI Art Critic</a></td></tr>
+                    <tr><td style="background-color:inherit"><br></td></tr>
+                    <tr><td><a href="#Opening">Opening</a></td></tr>
+                    <tr><td><a href="#Intro">Intro</a></td></tr>
+                    <tr><td><a href="#Art">Art</a></td></tr>
+                    <tr><td><a href="#Contact">Contact</a></td></tr>
+                    <tr><td><a href="#Footer">Footer</a></td></tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div id="sectionName">Welcome</div>
+        </div>
+        <div class="opening">
+            <div id="openingName">
+                <h2 style="padding-left:0.4vh">
+                    Hello, I'm
+                </h2>
+                <h2 style="font-size:100px; padding-left:0">
+                    Benjamin Tang
+                </h2>
+            </div>
+        </div>
+        <div class="intro">
+            <h2 style="padding-left:0.5vh">An artist, A leader, A visionary.</h2>
+            <h3></h3>
+            
+        </div>
+        <div class="art">
+            <div class="artcolumn1">
+                <img class="image" src="/Users/benjamin.0t/Desktop/Art/Design/开开关关-mockup.png">
+                <img class="image" src="/Users/benjamin.0t/Desktop/Art/Design/materialism.png">
+                <img class="image" src="/Users/benjamin.0t/Desktop/Art/Design/开开关关-mockup.png">
+                <img class="image" src="/Users/benjamin.0t/Desktop/Art/Design/开开关关-mockup.png">
+            </div>
+            <div class="artcolumn2">
+                <img class="image" src="/Users/benjamin.0t/Desktop/Art/Design/开开关关-mockup.png">
+                <img class="image" src="/Users/benjamin.0t/Desktop/Art/Design/materialism.png">
+                <img class="image" src="/Users/benjamin.0t/Desktop/Art/Design/开开关关-mockup.png">
+                <img class="image" src="/Users/benjamin.0t/Desktop/Art/Design/开开关关-mockup.png">
+            </div>
+            <div class="artcolumn3">
+                <img class="image" src="/Users/benjamin.0t/Desktop/Art/Design/开开关关-mockup.png">
+                <img class="image" src="/Users/benjamin.0t/Desktop/Art/Design/materialism.png">
+                <img class="image" src="/Users/benjamin.0t/Desktop/Art/Design/开开关关-mockup.png">
+                <img class="image" src="/Users/benjamin.0t/Desktop/Art/Design/开开关关-mockup.png">
+            </div>
+        </div>
+        <div class="contact">contact</div>
+        <div class="footer">footer</div>
+    </div>
+    
+<script>
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+        if (document.body.scrollTop < window.innerHeight || document.documentElement.scrollTop < window.innerHeight) {
+            document.getElementById("sectionName").innerHTML = "Welcome";
+        }
+        if (document.body.scrollTop > window.innerHeight*0.5 || document.documentElement.scrollTop > window.innerHeight*0.5) {
+            document.getElementById("sectionName").innerHTML = "Introduction";
+        }
+        if (document.body.scrollTop > window.innerHeight*1.5 || document.documentElement.scrollTop > window.innerHeight*1.5) {
+            document.getElementById("sectionName").innerHTML = "Art";
+        }
+    }
+</script>
+</body>
+</html>
