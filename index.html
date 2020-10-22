@@ -366,6 +366,10 @@
     
 <script>
     window.onscroll = function() {scrollFunction()};
+    var body = document.body;
+    var html = document.documentElement;
+    var height = Math.max( body.scrollHeight, body.offsetHeight, 
+                    html.clientHeight, html.scrollHeight, html.offsetHeight );
     
     var lastSection = -1;
     function scrollFunction() {
@@ -377,7 +381,6 @@
                     el.classList.remove("active");
                 });
                 $('#navWelcome').addClass("active");
-                console.log("getblipped " + lastSection);
             } 
             
             lastSection = 0;
@@ -390,7 +393,6 @@
                     el.classList.remove("active");
                 });
                  $('#navIntro').addClass("active");
-                 console.log("notblipped " + lastSection)
             }
             lastSection = 1;
         }
@@ -402,11 +404,10 @@
                     el.classList.remove("active");
                 });
                  $('#navArt').addClass("active");
-                 console.log("notblipped " + lastSection)
             }
             lastSection = 2;
         }
-        if (document.body.scrollTop > window.innerHeight*3 || document.documentElement.scrollTop > window.innerHeight*3) {
+        if (document.body.scrollTop > window.innerHeight*1.5 + document.getElementById("art").clientHeight*0.9 || document.documentElement.scrollTop > window.innerHeight*1.5 + document.getElementById("art").clientHeight*0.9) {
             document.getElementById("sectionName").innerHTML = "Contact";
             if(lastSection != 3) {
                 var elems = document.querySelectorAll(".active");
@@ -414,7 +415,6 @@
                     el.classList.remove("active");
                 });
                  $('#navContact').addClass("active");
-                 console.log("notblipped " + lastSection)
             }
             lastSection = 3;
         }
