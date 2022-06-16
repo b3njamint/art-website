@@ -1,254 +1,316 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap" rel="stylesheet">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-   
 
-<style>
-    :root {
-        --color1: black; /* text */
-        --color2: white; /* background 1 */
-        --color3: #98c495; /* background 2 */
-        --color4: ; /* background 3 */
-    }
-    .menu { grid-area: menu; }
-    .section { grid-area: section; }
-    .welcome { grid-area: welcome; }
-    .intro { grid-area: intro; }
-    .art { grid-area: art; }
-    .contact { grid-area: contact; }
-    .grid-container {
-    display: grid;
-    grid-template-areas:
-    'menu section welcome'
-    'menu section intro'
-    'menu section art'
-    'menu section contact';
-    width: calc(100vw-10px);
-    grid-template-rows: 100vh auto auto auto;
-    grid-template-columns: 20vw 50px calc(100% - 20vw - 60px);
-    grid-gap: 5px;
-    background-color: var(--color3);
-/*    padding: 10px;*/
-    }
-    .grid-container > div {
-        background-color: var(--color2);
-        text-align: center;
-        padding: 0 0;
-        font-size: 30px;
-    }
-</style>
 
-<style>
-    body {
-        margin:0;
-        padding:0;
-        font-family: 'Josefin Sans', sans-serif;
-        color: var(--color1);
-    }
-    h2 {
-        font-size: 50px;
-        text-align: left;
-        margin:0;
-    }
-    h3 {
-        font-size: 25px;
-        text-align: left;
-        margin:0 0 0 5px;
-        padding:0;
-    }
-    .menu {
-        position: fixed;
-        height: 100vh;
-        width: 20vw;
-    }
-    #navbar {
-        position:absolute;                  
-        bottom:0;
-        right:0;
-    }
-    td,tr {
-        text-align: right;
-        font-size: 25px;
-    }
-    td {
-        background-color: var(--color3);
-        padding:5px 5px 5px 5px;
-        width:20vw;
-    }
-    a {
-        color: black;
-        text-decoration: none;
-    }
-    #navbar td:hover {
-        background-color: var(--color1);
-        transition: 0.5s;
-        cursor: pointer;
-    }
-    td:hover a{
-        color: var(--color2);
-    }
-    .section {
-        text-align:center;
-        position:fixed;
-        height:100vh;
-        width: 55px;
-        left: 20vw;
-        float:center;
-    }
-    #sectionName {
-        position:absolute;                  
-        bottom:0;
-        transform: rotate(270deg);
-        transform-origin: top left;
-        font-size: 50px;
-        margin: 0 0 -14px 10px;
-    }
-    .welcome {
-        height: 100vh;
-    }
-    #welcomeName {
-        position:absolute;  
-        bottom:0;
-    }
-    .intro {
-        height: 100vh;
-    }
-/**********************************************************/    
-    .infographic td{
-        width: 35vw;
-    }
-/**********************************************************/
-    .art {
-        float:left;
-        text-align:left;
-        z-index:11;
-    }
-    .image {
-        width:24vw;
-        height:auto;
-        float:left;
-        padding-bottom:0.4vh;
-    }
-    .artcolumn1, .artcolumn2, .artcolumn3 {
-        float: left;
-        width: 32%;
-        height:auto;
-        padding: 0.4vh 0 0 0.4vh;
-        z-index:10;
-    }
-    .artcolumn1 {
-        padding-left: 0.6vh;
-    }
-</style>
-<style>
-    .image {
-      border-radius: 5px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+    <style>
+        :root {
+            --color1: black;
+            /* text */
+            --color2: white;
+            /* background 1 */
+            --color3: #98c495;
+            /* background 2 */
+            --color4: ;
+            /* background 3 */
+        }
 
-    .image:hover {
-        opacity: 0.7;
-    }
+        .menu {
+            grid-area: menu;
+        }
 
-    /* The Modal (background) */
-    .modal {
-      display: none; /* Hidden by default */
-      position: fixed; /* Stay in place */
-      z-index: 1; /* Sit on top */
-      padding-top: 0; /* Location of the box */
-      left: 0;
-      top: 0;
-      width: 100%; /* Full width */
-      height: 100%; /* Full height */
-      overflow: auto; /* Enable scroll if needed */
-      background-color: rgb(0,0,0); /* Fallback color */
-      background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-    }
+        .section {
+            grid-area: section;
+        }
 
-    /* Modal Content (Image) */
-    .modal-content {
-      margin: auto;
-      display: block;
-      max-width: 80%;
-      max-height: 100%;
-      height:auto;
-    }
+        .welcome {
+            grid-area: welcome;
+        }
 
-    /* Caption of Modal Image (Image Text) - Same Width as the Image */
-    #caption {
-      margin: auto;
-      display: block;
-      width: 80%;
-      max-width: 700px;
-      text-align: center;
-      color: #ccc;
-      padding: 10px 0;
-      height: 150px;
-      font-size: 25px;
-    }
+        .intro {
+            grid-area: intro;
+        }
 
-    /* Add Animation - Zoom in the Modal */
-    .modal-content, #caption {
-      animation-name: zoom;
-      animation-duration: 0.6s;
-    }
+        .art {
+            grid-area: art;
+        }
 
-    @keyframes zoom {
-      from {transform:scale(0)}
-      to {transform:scale(1)}
-    }
+        .contact {
+            grid-area: contact;
+        }
 
-    /* The Close Button */
-    .close {
-      position: absolute;
-      top: 15px;
-      right: 35px;
-      color: #f1f1f1;
-      font-size: 40px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
+        .grid-container {
+            display: grid;
+            grid-template-areas:
+                'menu section welcome'
+                'menu section intro'
+                'menu section art'
+                'menu section contact';
+            width: calc(100vw-10px);
+            grid-template-rows: 100vh auto auto auto;
+            grid-template-columns: 20vw 50px calc(100% - 20vw - 60px);
+            grid-gap: 5px;
+            background-color: var(--color3);
+            /*    padding: 10px;*/
+        }
 
-    .close:hover,
-    .close:focus {
-      color: #bbb;
-      text-decoration: none;
-      cursor: pointer;
-    }
+        .grid-container>div {
+            background-color: var(--color2);
+            text-align: center;
+            padding: 0 0;
+            font-size: 30px;
+        }
+    </style>
 
-    /* 100% Image Width on Smaller Screens */
-    @media only screen and (max-width: 700px){
-      .modal-content {
-        width: 100%;
-      }
-    }
-</style>
-<style>
-    .contact td{
-        width: 70vw;
-        text-align:left;
-    }
-    
-</style>
-<style>
-    .active{
-        background-color: var(--color1) !important; 
-        transition: 0.5s !imporant;
-        color: white !important;
-    }
-    .active a{
-        color: white !important;
-    }
-</style>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Josefin Sans', sans-serif;
+            color: var(--color1);
+        }
+
+        h2 {
+            font-size: 50px;
+            text-align: left;
+            margin: 0;
+        }
+
+        h3 {
+            font-size: 25px;
+            text-align: left;
+            margin: 0 0 0 5px;
+            padding: 0;
+        }
+
+        .menu {
+            position: fixed;
+            height: 100vh;
+            width: 20vw;
+        }
+
+        #navbar {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+
+        td,
+        tr {
+            text-align: right;
+            font-size: 25px;
+        }
+
+        td {
+            background-color: var(--color3);
+            padding: 5px 5px 5px 5px;
+            width: 20vw;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        #navbar td:hover {
+            background-color: var(--color1);
+            transition: 0.5s;
+            cursor: pointer;
+        }
+
+        td:hover a {
+            color: var(--color2);
+        }
+
+        .section {
+            text-align: center;
+            position: fixed;
+            height: 100vh;
+            width: 55px;
+            left: 20vw;
+            float: center;
+        }
+
+        #sectionName {
+            position: absolute;
+            bottom: 0;
+            transform: rotate(270deg);
+            transform-origin: top left;
+            font-size: 50px;
+            margin: 0 0 -14px 10px;
+        }
+
+        .welcome {
+            height: 100vh;
+        }
+
+        #welcomeName {
+            position: absolute;
+            bottom: 0;
+        }
+
+        .intro {
+            height: 100vh;
+        }
+
+        /**********************************************************/
+        .infographic td {
+            width: 35vw;
+        }
+
+        /**********************************************************/
+        .art {
+            float: left;
+            text-align: left;
+            z-index: 11;
+        }
+
+        .image {
+            width: 24vw;
+            height: auto;
+            float: left;
+            padding-bottom: 0.4vh;
+        }
+
+        .artcolumn1,
+        .artcolumn2,
+        .artcolumn3 {
+            float: left;
+            width: 32%;
+            height: auto;
+            padding: 0.4vh 0 0 0.4vh;
+            z-index: 10;
+        }
+
+        .artcolumn1 {
+            padding-left: 0.6vh;
+        }
+    </style>
+    <style>
+        .image {
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .image:hover {
+            opacity: 0.7;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 0;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.9);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content (Image) */
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 100%;
+            height: auto;
+        }
+
+        /* Caption of Modal Image (Image Text) - Same Width as the Image */
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+            font-size: 25px;
+        }
+
+        /* Add Animation - Zoom in the Modal */
+        .modal-content,
+        #caption {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {
+                transform: scale(0)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+
+        /* The Close Button */
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* 100% Image Width on Smaller Screens */
+        @media only screen and (max-width: 700px) {
+            .modal-content {
+                width: 100%;
+            }
+        }
+    </style>
+    <style>
+        .contact td {
+            width: 70vw;
+            text-align: left;
+        }
+    </style>
+    <style>
+        .active {
+            background-color: var(--color1) !important;
+            transition: 0.5s !imporant;
+            color: white !important;
+        }
+
+        .active a {
+            color: white !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -258,19 +320,28 @@
 
             <div id="navbar">
                 <table style="width:100%">
-                    <tr><td class="active" onclick="navClick(event, 'welcome')" id="navWelcome">Welcome</td></tr>
-                    <tr><td onclick="navClick(event, 'intro')" id="navIntro"><a href="#intro">Intro</a></td></tr>
-                    <tr><td onclick="navClick(event, 'art')" id="navArt"><a href="#art">Art</a></td></tr>
-                    <tr><td onclick="navClick(event, 'contact')" id="navContact"><a href="#contact">Contact</a></td></tr>
-                    <tr><td style="background-color:inherit"><br></td></tr>
-                    <tr><td onclick="projClick(event, 'http://aiartcritic.com')"><a>AI Art Critic</a></td></tr>
-                    <tr><td onclick="projClick(event, 'https://mac.applied-computing.org/acf/mac')"><a>MAC</a></td></tr>
-                    <tr><td onclick="projClick(event, 'http://voby.us')"><a>Vobyus</a></td></tr>
-                    <tr><td onclick="projClick(event, 'https://mvrt.com/')"><a>MVRT</a></td></tr>
+                    <tr>
+                        <td class="active" onclick="navClick(event, 'welcome')" id="navWelcome">Welcome</td>
+                    </tr>
+                    <tr>
+                        <td onclick="navClick(event, 'intro')" id="navIntro"><a href="#intro">Intro</a></td>
+                    </tr>
+                    <tr>
+                        <td onclick="navClick(event, 'art')" id="navArt"><a href="#art">Art</a></td>
+                    </tr>
+                    <tr>
+                        <td onclick="navClick(event, 'contact')" id="navContact"><a href="#contact">Contact</a></td>
+                    </tr>
+                    <tr>
+                        <td style="background-color:inherit"><br></td>
+                    </tr>
+                    <tr>
+                        <td onclick="projClick(event, 'http://aiartcritic.com')"><a>AI Art Critic</a></td>
+                    </tr>
                 </table>
             </div>
         </div>
-        
+
         <div class="section">
             <div id="sectionName">Welcome</div>
         </div>
@@ -286,24 +357,43 @@
         </div>
         <div class="intro" id="intro">
             <h2 style="padding-left:0.6vh; padding-top: 10px">An artist, A leader, A (blind?) visionary.</h2>
-            <h3><br><br>A senior at Monta Vista High School exploring the intersections between art and computer science.</h3>
-            <h3><br>Why does everything have to be so serious?<br><br><br><br></h3>
+            <h3><br><br>A sophomore at Cornell University exploring the intersections between art and computer science.
+            </h3>
+            <h3><br>Why does everything have to be so serious?<br><br>Check out my new website at
+                <a href="https://www.benjamint.xyz" style="color:var(--color3)">benjamint.xyz</a><br><br><br>
+            </h3>
             <table class="infographic" style="padding-left: 0.4vh">
                 <tr>
-                    <td><h2>1308</h2>Service Hours (as of 2020•10•01)</td>
-                    <td><h2>40+</h2>Local, State, National Art Awards</td>
+                    <td>
+                        <h2>1308</h2>Service Hours (as of 2020•10•01)
+                    </td>
+                    <td>
+                        <h2>40+</h2>Local, State, National Art Awards
+                    </td>
                 </tr>
                 <tr>
-                    <td><h2>500+</h2>Hours Coding</td>
-                    <td><h2>11</h2>Years Studying Art</td>
+                    <td>
+                        <h2>500+</h2>Hours Coding
+                    </td>
+                    <td>
+                        <h2>11</h2>Years Studying Art
+                    </td>
                 </tr>
                 <tr>
-                    <td><h2>17+</h2>Years Breathing</td>
-                    <td><h2>1+</h2>Facial Expressions</td>
+                    <td>
+                        <h2>18+</h2>Years Breathing
+                    </td>
+                    <td>
+                        <h2>1+</h2>Facial Expressions
+                    </td>
                 </tr>
                 <tr>
-                    <td><h2>100+</h2>Miles Canoed</td>
-                    <td><h2>3141+</h2>Absolutely Crazy Ideas</td>
+                    <td>
+                        <h2>100+</h2>Miles Canoed
+                    </td>
+                    <td>
+                        <h2>3141+</h2>Absolutely Crazy Ideas
+                    </td>
                 </tr>
             </table>
         </div>
@@ -311,131 +401,146 @@
             <h2 style="padding-left:0.4vh; padding-top: 10px;">Selected Artwork</h2>
             <h3><br><br>Single-click to enlarge. Scroll down in each enlargement to see the caption.</h3>
             <div class="artcolumn1">
-                <img id="art11" class="image" src="Art/look.png" alt="<i>Look</i><br>there is always someone there. always.<br>foam print, Zoom, Photoshop">
-                <img id="art1" class="image" src="Art/false-accusations.png" alt="<i>False Accusations</i><br>guernica inspired Picasso; vilification inspired me<br>acrylic, cardboard packaging, Photoshop">
-<!--                 12&#8221 x 30&#8221-->
-                <img id="art3" class="image" src="Art/self-conscious.png" alt="<i>Self-conscious</i><br>of myself, my thought processes, and myself.<br>foam print, pen, Photoshop">
-                <img id="art4" class="image" src="Art/sins-and-stars.png" alt="<i>Sins and Stars</i><br>allusive interaction of human forms;<br>intersection of sins and stars<br>foam print">
-<!--                <img id="art14" class="image" src="Art/josef-muller-brockmann.png" alt="<i>Josef Müller-Brockmann</i><br>assimilation of Josef Müller-Brockmann<br>Photoshop">-->
-<!--                <img id="art15" class="image" src="Art/inner-turmoil.JPG" alt="<i>Inner Turmoil</i><br>you absolute monkey!<br>wood print">-->
-            </div>
-            
-            <div class="artcolumn2">
-                <img id="art2" class="image" src="Art/self-containment.jpg" alt="<i>Self-containment</i><br>sometimes I wonder, are my thoughts even human?<br>charcoal">
-                <img id="art12" class="image" src="Art/self.png" alt="<i>Self</i><br>i made this; therefore it is me<br>texture study of computer screen rendering a bitmap in different enlargements<br>self-portrait, Photoshop">
-<!--                <img id="art7" class="image" src="Art/perspectives.png" alt="<i>Perspectives</i><br>after all this cold sweat, it was just a box?<br>hands, cardstock, plastic wrap, Photoshop">-->
-<!--                <img id="art10" class="image" src="Art/glass.png" alt="<i>Glass</i><br>glass texture study in charcoal">-->
-                <img id="art17" class="image" src="Art/hustle-culture.png" alt="<i>Hustle Culture</i><br>every now and then, stop, and take a look under your feet.<br>charcoal">
-                <img id="art13" class="image" src="Art/analects.JPG" alt="<i>Analects</i><br>simulacrum of thought and body<br>wood print">
-                <img id="art19" class="image" src="Art/design.png" alt="<i>Graphic Design</i><br>assorted graphic design works<br>Photoshop">
-            </div>
-            
-            <div class="artcolumn3">
-                <img id="art6" class="image" src="Art/paragon.png" alt="<i>Paragon</i><br>after all these years, what's the ideal charcoal piece?<br>40 charcoal construction drawings, Photoshop">
-                <img id="art5" class="image" src="Art/gruesome-beauty.png" alt="<i>Gruesome Beauty</i><br>beautiful lines, yet gruesome forms. are we really friends?<br>charcoal">
-<!--                <img id="art9" class="image" src="Art/scattered.png" alt="<i>Scattered</i><br>upside-down texture study of Antelope Canyon<br>wood print, Photoshop">-->
-                <img id="art16" class="image" src="Art/horror-story.jpg" alt="<i>Horror Story</i><br>am I the author, or am I the protagonist?<br>rubbing charcoal over hands">
-                <img id="art8" class="image" src="Art/open-close.png" alt="<i>开开关关</i><br>manipulaion of the Chinese characters 'open' and 'close';<br>cultural reverence or dishonor?<br>Photoshop">
-                <img id="art18" class="image" src="Art/a-guide-to-shit-artwork.png" alt="<i>A Guide to Shit Artwork</i><br>pre-order for $2.99 today!<br>New York Times bestseller<br>if you make it one<br>stone tiles, coffee grounds">
+                <img id="art11" class="image" src="Art/look.png"
+                    alt="<i>Look</i><br>there is always someone there. always.<br>foam print, Zoom, Photoshop">
+                <img id="art1" class="image" src="Art/false-accusations.png"
+                    alt="<i>False Accusations</i><br>guernica inspired Picasso; vilification inspired me<br>acrylic, cardboard packaging, Photoshop">
+                <!--                 12&#8221 x 30&#8221-->
+                <img id="art3" class="image" src="Art/self-conscious.png"
+                    alt="<i>Self-conscious</i><br>of myself, my thought processes, and myself.<br>foam print, pen, Photoshop">
+                <img id="art4" class="image" src="Art/sins-and-stars.png"
+                    alt="<i>Sins and Stars</i><br>allusive interaction of human forms;<br>intersection of sins and stars<br>foam print">
+                <!--                <img id="art14" class="image" src="Art/josef-muller-brockmann.png" alt="<i>Josef Müller-Brockmann</i><br>assimilation of Josef Müller-Brockmann<br>Photoshop">-->
+                <!--                <img id="art15" class="image" src="Art/inner-turmoil.JPG" alt="<i>Inner Turmoil</i><br>you absolute monkey!<br>wood print">-->
             </div>
 
-            
+            <div class="artcolumn2">
+                <img id="art2" class="image" src="Art/self-containment.jpg"
+                    alt="<i>Self-containment</i><br>sometimes I wonder, are my thoughts even human?<br>charcoal">
+                <img id="art12" class="image" src="Art/self.png"
+                    alt="<i>Self</i><br>i made this; therefore it is me<br>texture study of computer screen rendering a bitmap in different enlargements<br>self-portrait, Photoshop">
+                <!--                <img id="art7" class="image" src="Art/perspectives.png" alt="<i>Perspectives</i><br>after all this cold sweat, it was just a box?<br>hands, cardstock, plastic wrap, Photoshop">-->
+                <!--                <img id="art10" class="image" src="Art/glass.png" alt="<i>Glass</i><br>glass texture study in charcoal">-->
+                <img id="art17" class="image" src="Art/hustle-culture.png"
+                    alt="<i>Hustle Culture</i><br>every now and then, stop, and take a look under your feet.<br>charcoal">
+                <img id="art13" class="image" src="Art/analects.JPG"
+                    alt="<i>Analects</i><br>simulacrum of thought and body<br>wood print">
+                <img id="art19" class="image" src="Art/design.png"
+                    alt="<i>Graphic Design</i><br>assorted graphic design works<br>Photoshop">
+            </div>
+
+            <div class="artcolumn3">
+                <img id="art6" class="image" src="Art/paragon.png"
+                    alt="<i>Paragon</i><br>after all these years, what's the ideal charcoal piece?<br>40 charcoal construction drawings, Photoshop">
+                <img id="art5" class="image" src="Art/gruesome-beauty.png"
+                    alt="<i>Gruesome Beauty</i><br>beautiful lines, yet gruesome forms. are we really friends?<br>charcoal">
+                <!--                <img id="art9" class="image" src="Art/scattered.png" alt="<i>Scattered</i><br>upside-down texture study of Antelope Canyon<br>wood print, Photoshop">-->
+                <img id="art16" class="image" src="Art/horror-story.jpg"
+                    alt="<i>Horror Story</i><br>am I the author, or am I the protagonist?<br>rubbing charcoal over hands">
+                <img id="art8" class="image" src="Art/open-close.png"
+                    alt="<i>开开关关</i><br>manipulaion of the Chinese characters 'open' and 'close';<br>cultural reverence or dishonor?<br>Photoshop">
+                <img id="art18" class="image" src="Art/a-guide-to-shit-artwork.png"
+                    alt="<i>A Guide to Shit Artwork</i><br>pre-order for $2.99 today!<br>New York Times bestseller<br>if you make it one<br>stone tiles, coffee grounds">
+            </div>
+
+
             <div id="myModal" class="modal">
 
-              <!-- The Close Button -->
+                <!-- The Close Button -->
                 <span class="close">&times;</span>
 
-              <!-- Modal Content (The Image) -->
+                <!-- Modal Content (The Image) -->
                 <img class="modal-content" id="img01">
 
-              <!-- Modal Caption (Image Text) -->
+                <!-- Modal Caption (Image Text) -->
                 <div id="caption"></div>
             </div>
         </div>
-        
+
         <div class="contact" id="contact" style="text-align: left;padding-left:0.4vh;padding-bottom:0.4vh">
             <h2 style="padding-top:10px">Contact Me</h2>
-<!--            <img src="/Users/benjamin.0t/Desktop/Website/pfp1 copy.JPG" width="300px" float="left" style="padding-left:0.2vh">-->
+            <!--            <img src="/Users/benjamin.0t/Desktop/Website/pfp1 copy.JPG" width="300px" float="left" style="padding-left:0.2vh">-->
             <table class="contact" style="padding-left:0;margin-left=0">
                 <tr>
                     <td>Email: <a href="mailto:benjamint.xyz@gmail.com">benjamint.xyz@gmail.com</a></td>
                 </tr>
                 <tr>
                     <td>
-                    LinkedIn: <a href="https://www.linkedin.com/in/benjamint-xyz/">https://www.linkedin.com/in/benjamint-xyz/</a>
+                        LinkedIn: <a
+                            href="https://www.linkedin.com/in/benjamint-xyz/">https://www.linkedin.com/in/benjamint-xyz/</a>
                     </td>
                 </tr>
             </table>
         </div>
-<!--        <div class="footer">footer</div>-->
+        <!--        <div class="footer">footer</div>-->
     </div>
-    
-<script>
-    window.onscroll = function() {scrollFunction()};
-    var body = document.body;
-    var html = document.documentElement;
-    var height = Math.max( body.scrollHeight, body.offsetHeight, 
-                    html.clientHeight, html.scrollHeight, html.offsetHeight );
-    
-    var lastSection = -1;
-    function scrollFunction() {
-        if (document.body.scrollTop < window.innerHeight*0.5 || document.documentElement.scrollTop < window.innerHeight*0.5) {
-            document.getElementById("sectionName").innerHTML = "Welcome";
-            if(lastSection != 0) {
-                var elems = document.querySelectorAll(".active");
-                [].forEach.call(elems, function(el) {
-                    el.classList.remove("active");
-                });
-                $('#navWelcome').addClass("active");
-            } 
-            
-            lastSection = 0;
-        }
-        if (document.body.scrollTop > window.innerHeight*0.5 || document.documentElement.scrollTop > window.innerHeight*0.5) {
-            document.getElementById("sectionName").innerHTML = "Introduction";
-            if(lastSection != 1) {
-                var elems = document.querySelectorAll(".active");
-                [].forEach.call(elems, function(el) {
-                    el.classList.remove("active");
-                });
-                 $('#navIntro').addClass("active");
+
+    <script>
+        window.onscroll = function () { scrollFunction() };
+        var body = document.body;
+        var html = document.documentElement;
+        var height = Math.max(body.scrollHeight, body.offsetHeight,
+            html.clientHeight, html.scrollHeight, html.offsetHeight);
+
+        var lastSection = -1;
+        function scrollFunction() {
+            if (document.body.scrollTop < window.innerHeight * 0.5 || document.documentElement.scrollTop < window.innerHeight * 0.5) {
+                document.getElementById("sectionName").innerHTML = "Welcome";
+                if (lastSection != 0) {
+                    var elems = document.querySelectorAll(".active");
+                    [].forEach.call(elems, function (el) {
+                        el.classList.remove("active");
+                    });
+                    $('#navWelcome').addClass("active");
+                }
+
+                lastSection = 0;
             }
-            lastSection = 1;
-        }
-        if (document.body.scrollTop > window.innerHeight*1.5 || document.documentElement.scrollTop > window.innerHeight*1.5) {
-            document.getElementById("sectionName").innerHTML = "Art";
-            if(lastSection != 2) {
-                var elems = document.querySelectorAll(".active");
-                [].forEach.call(elems, function(el) {
-                    el.classList.remove("active");
-                });
-                 $('#navArt').addClass("active");
+            if (document.body.scrollTop > window.innerHeight * 0.5 || document.documentElement.scrollTop > window.innerHeight * 0.5) {
+                document.getElementById("sectionName").innerHTML = "Introduction";
+                if (lastSection != 1) {
+                    var elems = document.querySelectorAll(".active");
+                    [].forEach.call(elems, function (el) {
+                        el.classList.remove("active");
+                    });
+                    $('#navIntro').addClass("active");
+                }
+                lastSection = 1;
             }
-            lastSection = 2;
-        }
-        if (document.body.scrollTop > window.innerHeight*1.5 + document.getElementById("art").clientHeight*0.9 || document.documentElement.scrollTop > window.innerHeight*1.5 + document.getElementById("art").clientHeight*0.9) {
-            document.getElementById("sectionName").innerHTML = "Contact";
-            if(lastSection != 3) {
-                var elems = document.querySelectorAll(".active");
-                [].forEach.call(elems, function(el) {
-                    el.classList.remove("active");
-                });
-                 $('#navContact').addClass("active");
+            if (document.body.scrollTop > window.innerHeight * 1.5 || document.documentElement.scrollTop > window.innerHeight * 1.5) {
+                document.getElementById("sectionName").innerHTML = "Art";
+                if (lastSection != 2) {
+                    var elems = document.querySelectorAll(".active");
+                    [].forEach.call(elems, function (el) {
+                        el.classList.remove("active");
+                    });
+                    $('#navArt').addClass("active");
+                }
+                lastSection = 2;
             }
-            lastSection = 3;
+            if (document.body.scrollTop > window.innerHeight * 1.5 + document.getElementById("art").clientHeight * 0.9 || document.documentElement.scrollTop > window.innerHeight * 1.5 + document.getElementById("art").clientHeight * 0.9) {
+                document.getElementById("sectionName").innerHTML = "Contact";
+                if (lastSection != 3) {
+                    var elems = document.querySelectorAll(".active");
+                    [].forEach.call(elems, function (el) {
+                        el.classList.remove("active");
+                    });
+                    $('#navContact').addClass("active");
+                }
+                lastSection = 3;
+            }
         }
-    }
-</script>
-<script>
-    function navClick(event, elmt) {
-        document.getElementById(elmt).scrollIntoView({behavior:"smooth"});
-    }
-    function projClick(event, link) {
-        window.open(link, '_blank');
-    }
-    
-</script>
-<!--
+    </script>
+    <script>
+        function navClick(event, elmt) {
+            document.getElementById(elmt).scrollIntoView({ behavior: "smooth" });
+        }
+        function projClick(event, link) {
+            window.open(link, '_blank');
+        }
+
+    </script>
+    <!--
 <script>
     $(document).ready(function () {
         $(document).on("scroll", onScroll);
@@ -480,37 +585,38 @@
     }
 </script>
 -->
-<script>
-    var modal = document.getElementById("myModal");
+    <script>
+        var modal = document.getElementById("myModal");
 
-    // Get the image and insert it inside the modal - use its "alt" text as a caption
-    for(var i = 1; i <= 20; i ++) {
-        var img = document.getElementById("art"+i);
-        if(img != null) {
-            var modalImg = document.getElementById("img01");
-            var captionText = document.getElementById("caption");
-            img.onclick = function() {
-                modal.style.display = "block";
-                modalImg.src = this.src;
-                captionText.innerHTML = this.alt;
-                if($("#myModal").css("display").toString()=="block") {
-                    modal.onclick = function() {
-                        modal.style.display = "none";
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        for (var i = 1; i <= 20; i++) {
+            var img = document.getElementById("art" + i);
+            if (img != null) {
+                var modalImg = document.getElementById("img01");
+                var captionText = document.getElementById("caption");
+                img.onclick = function () {
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    captionText.innerHTML = this.alt;
+                    if ($("#myModal").css("display").toString() == "block") {
+                        modal.onclick = function () {
+                            modal.style.display = "none";
+                        }
                     }
+                }
+
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function () {
+                    modal.style.display = "none";
                 }
             }
 
-            // Get the <span> element that closes the modal
-            var span = document.getElementsByClassName("close")[0];
 
-            // When the user clicks on <span> (x), close the modal
-            span.onclick = function() {
-                modal.style.display = "none";
-            }
         }
-
-
-    }
-</script>
+    </script>
 </body>
+
 </html>
